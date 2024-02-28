@@ -1,0 +1,7 @@
+DUT, RTL, Design
+Declarare package cu package si end package
+
+	Timp 0 ----> Timp 5ns Perioada de 10ns
+clk:  0			 1
+
+Cele 2 clk si test_clk sunt in faza diferita cu factor de umplere diferite, dar acceasi perioda
