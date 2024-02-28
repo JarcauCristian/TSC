@@ -26,7 +26,7 @@ package instr_register_pkg;
     opcode_t  opc;
     operand_t op_a;
     operand_t op_b;
-    operand_t res;
+    operand_d_t res;
   } instruction_t; //adaugat res care sa fie tot operand_t
 
 endpackage: instr_register_pkg

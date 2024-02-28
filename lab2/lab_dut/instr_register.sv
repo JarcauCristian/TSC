@@ -22,15 +22,28 @@ import instr_register_pkg::*;  // user-defined types are defined in instr_regist
 
   instruction_t  iw_reg [0:31];  // an array of instruction_word structures (Avem 32 de valori de instruction_t)
 
+
   // write to the register
   always @(posedge clk, negedge reset_n)   // write into register (Lista de senzitivitatii)
     if (!reset_n) begin
       foreach (iw_reg[i])
         iw_reg[i] = '{opc:ZERO,default:0};  // reset to all zeros (opcode-ul o sa fie ZERO, iar restul elementelor din structura o sa i-a valoare de dupa default, adica 0)
+
     end
     else if (load_en) begin
-      iw_reg[write_pointer] = '{opcode,operand_a,operand_b}; // daca adress_t ar fi pe 6 biti avem 64 de valori si pana la 31 este ok, dupa daca avem 32 o sa fie 0 deaoarece avem overflow
+      //iw_reg[write_pointer] = '{opcode,operand_a,operand_b}; // daca adress_t ar fi pe 6 biti avem 64 de valori si pana la 31 este ok, dupa daca avem 32 o sa fie 0 deaoarece avem overflow
       // Facem case pentru operand si implementam opcodurile
+
+      case (opcode)
+        ZERO : iw_reg[write_pointer] = '{opcode,operand_a,operand_b,{64{1'b0}}};
+        PASSA : iw_reg[write_pointer] = '{opcode,operand_a,operand_b,operand_a};
+        PASSB : iw_reg[write_pointer] =  '{opcode,operand_a,operand_b,operand_b};
+        ADD : iw_reg[write_pointer] =  '{opcode,operand_a,operand_b,operand_a + operand_b};
+        SUB : iw_reg[write_pointer] =  '{opcode,operand_a,operand_b,operand_a - operand_b};
+        MULT : iw_reg[write_pointer] =  '{opcode,operand_a,operand_b,operand_a * operand_b};
+        DIV : iw_reg[write_pointer] =  '{opcode,operand_a,operand_b,operand_a / operand_b};
+        MOD : iw_reg[write_pointer] =  '{opcode,operand_a,operand_b,operand_a % operand_b};
+      endcase 
     end
 
   // read from the register
