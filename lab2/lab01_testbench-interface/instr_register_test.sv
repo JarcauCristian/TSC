@@ -81,23 +81,20 @@ module instr_register_test
     static int temp = 0;
     operand_t op_a, op_b;
     opcode_t opc;
+    int wp;
 
     op_a     = $random(seed)%16;                 // between -15 and 15
     op_b     = $unsigned($random)%16;            // between 0 and 15
-    opc        <= opcode_t'($unsigned($random)%8);  // between 0 and 7, cast to opcode_t type
-    write_pointer <= temp++; // write_pointer primeste 0 la inceput
+    opc        = opcode_t'($unsigned($random)%8);  // between 0 and 7, cast to opcode_t type
+    wp = temp++; //write temp to local variable
+    write_pointer <= wp; // write_pointer primeste 0 la inceput
 
 
-    operand_a <= op_a;
-    operand_b <= op_b;
-    opcode <= opc;
-
+    operand_a <= op_a; //put the calculated variable from above inside the registers
+    operand_b <= op_b; //put the calculated variable from above inside the registers
+    opcode <= opc; //put the calculated variable from above inside the registers
     
-    iw_reg[write_pointer] = '{opc,op_a,op_b,{64{1'b0}}};
-    $display("\n write_pointer = %0d", write_pointer);
-    $display("  opcode = %0d (%s)", iw_reg[write_pointer].opc, iw_reg[write_pointer].opc.name);
-    $display("  operand_a = %0d",   iw_reg[write_pointer].op_a);
-    $display("  operand_b = %0d", iw_reg[write_pointer].op_b);
+    iw_reg[wp] = '{opc,op_a,op_b,{64{1'b0}}};
   endfunction: randomize_transaction
 
   function void print_transaction;
@@ -132,7 +129,7 @@ module instr_register_test
         MOD : result = iw_reg[read_pointer].op_a % iw_reg[read_pointer].op_b;
     endcase 
 
-    $display("\nwrite_pointer = %0d", write_pointer);
+    $display("\nCheck Result:");
     $display("  read_pointer = %0d", read_pointer);
     $display("  opcode = %0d (%s)", iw_reg[read_pointer].opc, iw_reg[read_pointer].opc.name);
     $display("  operand_a = %0d",   iw_reg[read_pointer].op_a);
