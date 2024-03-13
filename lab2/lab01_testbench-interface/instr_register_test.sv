@@ -25,8 +25,8 @@ module instr_register_test
 
   parameter WR_NR = 3;
   parameter RD_NR = 3;
-  parameter WRITE_ORDER = 1;
-  parameter READ_ORDER = 1;
+  int WRITE_ORDER = 0;
+  int READ_ORDER = 0;
   instruction_t iw_reg_test [0:31];
 
   initial begin
@@ -68,7 +68,63 @@ module instr_register_test
     end
 
     @(posedge clk) ;
-    $display("\nNumber of errors out of all tests: %0d/%0d", passed_tests, WR_NR);
+    $display("\nNumber of tests passed out of all tests for Incremental: %0d/%0d", passed_tests, RD_NR);
+
+    passed_tests = 0;
+    WRITE_ORDER = 1;
+    READ_ORDER = 1;
+    @(posedge clk);
+    @(posedge clk) load_en = 1'b1;
+    repeat (WR_NR) begin
+      @(posedge clk) randomize_transaction;
+      @(negedge clk) print_transaction;
+    end
+    @(posedge clk) load_en = 1'b0;  // turn-off writing to register
+
+    // read back and display same three register locations
+    $display("\nReading back the same register locations written...");
+    for (int i=0; i<RD_NR; i++) begin
+      // later labs will replace this loop with iterating through a
+      // scoreboard to determine which addresses were written and
+      // the expected values to be read back
+      @(posedge clk) 
+      if (READ_ORDER == 0) read_pointer = i;
+      else if (READ_ORDER == 1) read_pointer = 31 - (i % 32);
+      else if (READ_ORDER == 2) read_pointer = $unsigned($random%32);
+      @(negedge clk) print_results;
+      check_result;
+    end
+
+    @(posedge clk) ;
+    $display("\nNumber of tests passed out of all tests for Decremental: %0d/%0d", passed_tests, RD_NR);
+
+    passed_tests = 0;
+    WRITE_ORDER = 2;
+    READ_ORDER = 2;
+    @(posedge clk);
+    @(posedge clk) load_en = 1'b1;
+    repeat (WR_NR) begin
+      @(posedge clk) randomize_transaction;
+      @(negedge clk) print_transaction;
+    end
+    @(posedge clk) load_en = 1'b0;  // turn-off writing to register
+
+    // read back and display same three register locations
+    $display("\nReading back the same register locations written...");
+    for (int i=0; i<RD_NR; i++) begin
+      // later labs will replace this loop with iterating through a
+      // scoreboard to determine which addresses were written and
+      // the expected values to be read back
+      @(posedge clk) 
+      if (READ_ORDER == 0) read_pointer = i;
+      else if (READ_ORDER == 1) read_pointer = 31 - (i % 32);
+      else if (READ_ORDER == 2) read_pointer = $unsigned($random%32);
+      @(negedge clk) print_results;
+      check_result;
+    end
+
+    @(posedge clk) ;
+    $display("\nNumber of tests passed out of all tests for Random: %0d/%0d", passed_tests, RD_NR);
     $display("\n***********************************************************");
     $display(  "***  THIS IS A SELF-CHECKING TESTBENCH.  YOU DON'T  ***");
     $display(  "***  NEED TO VISUALLY VERIFY THAT THE OUTPUT VALUES     ***");
@@ -110,10 +166,10 @@ module instr_register_test
     opcode = opcode_t'($unsigned($random)%8); //put the calculated variable from above inside the registers
 
     iw_reg_test[write_pointer] = '{opcode,operand_a,operand_b,{64{1'b0}}};
-    $display("Randomized Transaction Display:");
-    $display("operand_a: %0d", operand_a);
-    $display("operand_b: %0d", operand_b);
-    $display("opcode: %0d", opcode);
+    $display("Randomized Transaction Display for Position: %0d", write_pointer);
+    $display("operand_a: %0d", iw_reg_test[write_pointer].op_a);
+    $display("operand_b: %0d", iw_reg_test[write_pointer].op_b);
+    $display("opcode: %0d", iw_reg_test[write_pointer].opc);
     $display("Time: %0t\n", $time);
   endfunction: randomize_transaction
 
@@ -133,6 +189,7 @@ module instr_register_test
   endfunction: print_results
 
   function void check_result;
+   $display("  read_pointer = %0d", read_pointer);
     if ((instruction_word.op_a === iw_reg_test[read_pointer].op_a) && (instruction_word.op_b === iw_reg_test[read_pointer].op_b) && (instruction_word.opc === iw_reg_test[read_pointer].opc))
     begin
       operand_d_t result;
@@ -152,13 +209,13 @@ module instr_register_test
           MOD : result = iw_reg_test[read_pointer].op_a % iw_reg_test[read_pointer].op_b;
       endcase
 
-        $display("\nCheck Result:");
+      $display("\nCheck Result:");
       $display("  read_pointer = %0d", read_pointer);
       $display("  opcode = %0d (%s)", iw_reg_test[read_pointer].opc, iw_reg_test[read_pointer].opc.name);
       $display("  operand_a = %0d",   iw_reg_test[read_pointer].op_a);
       $display("  operand_b = %0d", iw_reg_test[read_pointer].op_b);
 
-        $display("\nCalculated Test Result: %0d\n", result);
+      $display("\nCalculated Test Result: %0d\n", result);
 
       if (result === instruction_word.result) 
       begin
@@ -175,5 +232,12 @@ module instr_register_test
       $display("What was stored in test does not match what was read from DUT.\n");
     end
   endfunction: check_result
+
+  function void reset_iw_reg_test;
+    for (int i = 0; i < 32; i++)
+    begin
+      iw_reg_test[i] = '{opc:ZERO,default:0};
+    end
+  endfunction:reset_iw_reg_test
 
 endmodule: instr_register_test
