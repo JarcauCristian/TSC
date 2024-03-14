@@ -73,7 +73,6 @@ module instr_register_test
     passed_tests = 0;
     WRITE_ORDER = 1;
     READ_ORDER = 1;
-    @(posedge clk);
     @(posedge clk) load_en = 1'b1;
     repeat (WR_NR) begin
       @(posedge clk) randomize_transaction;
@@ -101,7 +100,6 @@ module instr_register_test
     passed_tests = 0;
     WRITE_ORDER = 2;
     READ_ORDER = 2;
-    @(posedge clk);
     @(posedge clk) load_en = 1'b1;
     repeat (WR_NR) begin
       @(posedge clk) randomize_transaction;
@@ -125,6 +123,34 @@ module instr_register_test
 
     @(posedge clk) ;
     $display("\nNumber of tests passed out of all tests for Random: %0d/%0d", passed_tests, RD_NR);
+
+    passed_tests = 0;
+    WRITE_ORDER = 1;
+    READ_ORDER = 2;
+    @(posedge clk) load_en = 1'b1;
+    repeat (WR_NR) begin
+      @(posedge clk) randomize_transaction;
+      @(negedge clk) print_transaction;
+    end
+    @(posedge clk) load_en = 1'b0;  // turn-off writing to register
+
+    // read back and display same three register locations
+    $display("\nReading back the same register locations written...");
+    for (int i=0; i<RD_NR; i++) begin
+      // later labs will replace this loop with iterating through a
+      // scoreboard to determine which addresses were written and
+      // the expected values to be read back
+      @(posedge clk) 
+      if (READ_ORDER == 0) read_pointer = i;
+      else if (READ_ORDER == 1) read_pointer = 31 - (i % 32);
+      else if (READ_ORDER == 2) read_pointer = $unsigned($random%32);
+      @(negedge clk) print_results;
+      check_result;
+    end
+
+    @(posedge clk) ;
+    $display("\nNumber of tests passed out of all tests for Random: %0d/%0d", passed_tests, RD_NR);
+
     $display("\n***********************************************************");
     $display(  "***  THIS IS A SELF-CHECKING TESTBENCH.  YOU DON'T  ***");
     $display(  "***  NEED TO VISUALLY VERIFY THAT THE OUTPUT VALUES     ***");
