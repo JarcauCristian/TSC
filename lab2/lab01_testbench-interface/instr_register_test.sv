@@ -23,8 +23,8 @@ module instr_register_test
   int seed = 555;
   static int passed_tests = 0;
 
-  parameter WR_NR = 3;
-  parameter RD_NR = 3;
+  parameter WR_NR = 100;
+  parameter RD_NR = 100;
   int WRITE_ORDER = 0;
   int READ_ORDER = 0;
   instruction_t iw_reg_test [0:31];
