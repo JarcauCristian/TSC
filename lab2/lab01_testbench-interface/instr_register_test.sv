@@ -25,6 +25,7 @@ module instr_register_test
 
   parameter WR_NR = 100;
   parameter RD_NR = 100;
+  parameter ORDER_OPTIONS = 3;
   int WRITE_ORDER = 0;
   int READ_ORDER = 0;
   instruction_t iw_reg_test [0:31];
@@ -44,112 +45,39 @@ module instr_register_test
     repeat (2) @(posedge clk) ;     // hold in reset for 2 clock cycles
     reset_n        = 1'b1;          // deassert reset_n (active low)
 
-    $display("\nWriting values to register stack...");
-    @(posedge clk) load_en = 1'b1;  // enable writing to register
-    //repeat (3) begin JSC 06.03.2024
-    repeat (WR_NR) begin
-      @(posedge clk) randomize_transaction;
-      @(negedge clk) print_transaction;
+    for (int ro=0; ro<ORDER_OPTIONS; ro++)
+    begin
+      for (int wo=0; wo<ORDER_OPTIONS; wo++)
+      begin
+        WRITE_ORDER = wo;
+        READ_ORDER = ro;
+        passed_tests = 0;
+        @(posedge clk) load_en = 1'b1;  // enable writing to register
+        $display("\nWriting values to register stack...");
+        //repeat (3) begin JSC 06.03.2024
+        repeat (WR_NR) begin
+          @(posedge clk) randomize_transaction;
+          @(negedge clk) print_transaction;
+        end
+        @(posedge clk) load_en = 1'b0;  // turn-off writing to register
+
+        // read back and display same three register locations
+        $display("\nReading back the same register locations written...");
+        for (int i=0; i<RD_NR; i++) begin
+          // later labs will replace this loop with iterating through a
+          // scoreboard to determine which addresses were written and
+          // the expected values to be read back
+          @(posedge clk) 
+          if (READ_ORDER == 0) read_pointer = i;
+          else if (READ_ORDER == 1) read_pointer = 31 - (i % 32);
+          else if (READ_ORDER == 2) read_pointer = $unsigned($random%32);
+          @(negedge clk) print_results;
+          check_result;
+        end
+        @(posedge clk) ;
+        $display("\nNumber of tests passed out of all tests for Decremental: %0d/%0d", passed_tests, RD_NR);
+      end
     end
-    @(posedge clk) load_en = 1'b0;  // turn-off writing to register
-
-    // read back and display same three register locations
-    $display("\nReading back the same register locations written...");
-    for (int i=0; i<RD_NR; i++) begin
-      // later labs will replace this loop with iterating through a
-      // scoreboard to determine which addresses were written and
-      // the expected values to be read back
-      @(posedge clk) 
-      if (READ_ORDER == 0) read_pointer = i;
-      else if (READ_ORDER == 1) read_pointer = 31 - (i % 32);
-      else if (READ_ORDER == 2) read_pointer = $unsigned($random%32);
-      @(negedge clk) print_results;
-      check_result;
-    end
-
-    @(posedge clk) ;
-    $display("\nNumber of tests passed out of all tests for Incremental: %0d/%0d", passed_tests, RD_NR);
-
-    passed_tests = 0;
-    WRITE_ORDER = 1;
-    READ_ORDER = 1;
-    @(posedge clk) load_en = 1'b1;
-    repeat (WR_NR) begin
-      @(posedge clk) randomize_transaction;
-      @(negedge clk) print_transaction;
-    end
-    @(posedge clk) load_en = 1'b0;  // turn-off writing to register
-
-    // read back and display same three register locations
-    $display("\nReading back the same register locations written...");
-    for (int i=0; i<RD_NR; i++) begin
-      // later labs will replace this loop with iterating through a
-      // scoreboard to determine which addresses were written and
-      // the expected values to be read back
-      @(posedge clk) 
-      if (READ_ORDER == 0) read_pointer = i;
-      else if (READ_ORDER == 1) read_pointer = 31 - (i % 32);
-      else if (READ_ORDER == 2) read_pointer = $unsigned($random%32);
-      @(negedge clk) print_results;
-      check_result;
-    end
-
-    @(posedge clk) ;
-    $display("\nNumber of tests passed out of all tests for Decremental: %0d/%0d", passed_tests, RD_NR);
-
-    passed_tests = 0;
-    WRITE_ORDER = 2;
-    READ_ORDER = 2;
-    @(posedge clk) load_en = 1'b1;
-    repeat (WR_NR) begin
-      @(posedge clk) randomize_transaction;
-      @(negedge clk) print_transaction;
-    end
-    @(posedge clk) load_en = 1'b0;  // turn-off writing to register
-
-    // read back and display same three register locations
-    $display("\nReading back the same register locations written...");
-    for (int i=0; i<RD_NR; i++) begin
-      // later labs will replace this loop with iterating through a
-      // scoreboard to determine which addresses were written and
-      // the expected values to be read back
-      @(posedge clk) 
-      if (READ_ORDER == 0) read_pointer = i;
-      else if (READ_ORDER == 1) read_pointer = 31 - (i % 32);
-      else if (READ_ORDER == 2) read_pointer = $unsigned($random%32);
-      @(negedge clk) print_results;
-      check_result;
-    end
-
-    @(posedge clk) ;
-    $display("\nNumber of tests passed out of all tests for Random: %0d/%0d", passed_tests, RD_NR);
-
-    passed_tests = 0;
-    WRITE_ORDER = 1;
-    READ_ORDER = 2;
-    @(posedge clk) load_en = 1'b1;
-    repeat (WR_NR) begin
-      @(posedge clk) randomize_transaction;
-      @(negedge clk) print_transaction;
-    end
-    @(posedge clk) load_en = 1'b0;  // turn-off writing to register
-
-    // read back and display same three register locations
-    $display("\nReading back the same register locations written...");
-    for (int i=0; i<RD_NR; i++) begin
-      // later labs will replace this loop with iterating through a
-      // scoreboard to determine which addresses were written and
-      // the expected values to be read back
-      @(posedge clk) 
-      if (READ_ORDER == 0) read_pointer = i;
-      else if (READ_ORDER == 1) read_pointer = 31 - (i % 32);
-      else if (READ_ORDER == 2) read_pointer = $unsigned($random%32);
-      @(negedge clk) print_results;
-      check_result;
-    end
-
-    @(posedge clk) ;
-    $display("\nNumber of tests passed out of all tests for Random: %0d/%0d", passed_tests, RD_NR);
 
     $display("\n***********************************************************");
     $display(  "***  THIS IS A SELF-CHECKING TESTBENCH.  YOU DON'T  ***");
