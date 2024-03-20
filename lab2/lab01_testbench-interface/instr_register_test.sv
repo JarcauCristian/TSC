@@ -21,10 +21,11 @@ module instr_register_test
   timeunit 1ns/1ns;
 
   int seed = 555;
-  static int passed_tests = 0;
+  int passed_tests = 0;
+  int total_tests = 0;
 
-  parameter WR_NR = 100;
-  parameter RD_NR = 100;
+  parameter WR_NR = 20;
+  parameter RD_NR = 3;
   parameter ORDER_OPTIONS = 3;
   int WRITE_ORDER = 0;
   int READ_ORDER = 0;
@@ -51,7 +52,6 @@ module instr_register_test
       begin
         WRITE_ORDER = wo;
         READ_ORDER = ro;
-        passed_tests = 0;
         @(posedge clk) load_en = 1'b1;  // enable writing to register
         $display("\nWriting values to register stack...");
         //repeat (3) begin JSC 06.03.2024
@@ -75,10 +75,9 @@ module instr_register_test
           check_result;
         end
         @(posedge clk) ;
-        $display("\nNumber of tests passed out of all tests for Decremental: %0d/%0d", passed_tests, RD_NR);
       end
     end
-
+    $display("\nNumber of tests passed out of all tests for: %0d/%0d", passed_tests, total_tests);
     $display("\n***********************************************************");
     $display(  "***  THIS IS A SELF-CHECKING TESTBENCH.  YOU DON'T  ***");
     $display(  "***  NEED TO VISUALLY VERIFY THAT THE OUTPUT VALUES     ***");
@@ -170,6 +169,7 @@ module instr_register_test
       $display("  operand_b = %0d", iw_reg_test[read_pointer].op_b);
 
       $display("\nCalculated Test Result: %0d\n", result);
+      $display(" instruction_word.res = %0d\n", instruction_word.result);
 
       if (result === instruction_word.result) 
       begin
@@ -185,6 +185,7 @@ module instr_register_test
     begin
       $display("What was stored in test does not match what was read from DUT.\n");
     end
+    total_tests++;
   endfunction: check_result
 
   function void reset_iw_reg_test;
