@@ -29,7 +29,7 @@ module instr_register_test
   parameter ORDER_OPTIONS = 3;
   parameter WRITE_ORDER = 0;
   parameter READ_ORDER = 0;
-  parameter TEST_NAME;
+  parameter TEST_NAME = "";
   instruction_t iw_reg_test [0:31];
 
   initial begin
@@ -70,6 +70,7 @@ module instr_register_test
       check_result;
     end
     @(posedge clk) ;
+    final_report;
     $display("\nNumber of tests passed out of all tests for: %0d/%0d", passed_tests, total_tests);
     $display("\n***********************************************************");
     $display(  "***  THIS IS A SELF-CHECKING TESTBENCH.  YOU DON'T  ***");
@@ -189,14 +190,15 @@ module instr_register_test
   endfunction:reset_iw_reg_test
 
   function void final_report;
-    file = $fopen("../../regression_status.txt", "a")
+    int file;
+    file = $fopen("../reports/regression_status.txt", "a");
     if (passed_tests != total_tests)
     begin
-      $fwrite(file, "%s: failed", TEST_NAME);
+      $fdisplay(file, "%s: failed", TEST_NAME);
     end
     else
     begin
-      $fwrite(file, "%s: passed", TEST_NAME);
+      $fdisplay(file, "%s: passed", TEST_NAME);
     end
     $fclose(file);
   endfunction:final_report
