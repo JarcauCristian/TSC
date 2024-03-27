@@ -15,3 +15,5 @@ else (
         echo "Parameter 6 can only be gui or c!"
     )
 )
+
+cd ../tools

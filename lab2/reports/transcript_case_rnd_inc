@@ -1,6 +1,6 @@
 # 1
 # Model Technology ModelSim Microsemi vlog 10.5c Compiler 2016.07 Jul 21 2016
-# Start time: 11:16:02 on Mar 27,2024
+# Start time: 11:16:04 on Mar 27,2024
 # vlog -sv -timescale 1ps/1ps -work work -f sources.txt 
 # -- Compiling package instr_register_pkg
 # -- Compiling module instr_register
@@ -10,10 +10,10 @@
 # 
 # Top level modules:
 # 	top
-# End time: 11:16:02 on Mar 27,2024, Elapsed time: 0:00:00
+# End time: 11:16:04 on Mar 27,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vsim -novopt -quiet -nocoverage "+notimingchecks" "+nowarnTSCALE" -sva top -GTEST_NAME=case_inc_inc -GWR_NR=1 -GRD_NR=1 -GWRITE_ORDER=0 -GREAD_ORDER=0 
-# Start time: 11:16:02 on Mar 27,2024
+# vsim -novopt -quiet -nocoverage "+notimingchecks" "+nowarnTSCALE" -sva top -GTEST_NAME=case_rnd_inc -GWR_NR=1 -GRD_NR=1 -GWRITE_ORDER=0 -GREAD_ORDER=2 
+# Start time: 11:16:04 on Mar 27,2024
 # //  ModelSim Microsemi 10.5c Jul 21 2016
 # //
 # //  Copyright 1991-2016 Mentor Graphics Corporation
@@ -51,29 +51,16 @@
 # 
 # 
 # Reading back the same register locations written...
-# Read from register location 0: 
-#   opcode = 1 (PASSA)
-#   operand_a = -12
-#   operand_b = 7
-#   result    = -12
-#   read_pointer = 0
-# 
-# What was stored in test matches what came from DUT. Starting cheking if results are matching.
-# 
-# Check Result:
-#   read_pointer = 0
-#   opcode = 1 (PASSA)
-#   operand_a = -12
-#   operand_b = 7
-# 
-# Calculated Test Result: -12
-# 
-#  instruction_word.res = -12
-# 
-# Results are matching!
+# Read from register location 8: 
+#   opcode = 0 (ZERO)
+#   operand_a = 0
+#   operand_b = 0
+#   result    = 0
+#   read_pointer = 8
+# What was stored in test does not match what was read from DUT.
 # 
 # 
-# Number of tests passed out of all tests for: 1/1
+# Number of tests passed out of all tests for: 0/1
 # 
 # ***********************************************************
 # ***  THIS IS A SELF-CHECKING TESTBENCH.  YOU DON'T  ***
@@ -83,5 +70,5 @@
 # 
 # ** Note: $finish    : ../lab01_testbench-interface/instr_register_test.sv(80)
 #    Time: 66 ns  Iteration: 1  Instance: /top/test
-# End time: 11:16:03 on Mar 27,2024, Elapsed time: 0:00:01
+# End time: 11:16:05 on Mar 27,2024, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
