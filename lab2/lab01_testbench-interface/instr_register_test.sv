@@ -27,8 +27,9 @@ module instr_register_test
   parameter WR_NR = 20;
   parameter RD_NR = 3;
   parameter ORDER_OPTIONS = 3;
-  int WRITE_ORDER = 0;
-  int READ_ORDER = 0;
+  parameter WRITE_ORDER = 0;
+  parameter READ_ORDER = 0;
+  parameter TEST_NAME;
   instruction_t iw_reg_test [0:31];
 
   initial begin
@@ -39,44 +40,36 @@ module instr_register_test
     $display(    "***********************************************************");
 
     $display("\nReseting the instruction register...");
+
     write_pointer  = 5'h00;         // initialize write pointer
     read_pointer   = 5'h1F;         // initialize read pointer
     load_en        = 1'b0;          // initialize load control line
     reset_n       <= 1'b0;          // assert reset_n (active low)
     repeat (2) @(posedge clk) ;     // hold in reset for 2 clock cycles
     reset_n        = 1'b1;          // deassert reset_n (active low)
+    @(posedge clk) load_en = 1'b1;  // enable writing to register
+    $display("\nWriting values to register stack...");
+     //repeat (3) begin JSC 06.03.2024
+     repeat (WR_NR) begin
+       @(posedge clk) randomize_transaction;
+       @(negedge clk) print_transaction;
+     end
+     @(posedge clk) load_en = 1'b0;  // turn-off writing to register
 
-    for (int ro=0; ro<ORDER_OPTIONS; ro++)
-    begin
-      for (int wo=0; wo<ORDER_OPTIONS; wo++)
-      begin
-        WRITE_ORDER = wo;
-        READ_ORDER = ro;
-        @(posedge clk) load_en = 1'b1;  // enable writing to register
-        $display("\nWriting values to register stack...");
-        //repeat (3) begin JSC 06.03.2024
-        repeat (WR_NR) begin
-          @(posedge clk) randomize_transaction;
-          @(negedge clk) print_transaction;
-        end
-        @(posedge clk) load_en = 1'b0;  // turn-off writing to register
-
-        // read back and display same three register locations
-        $display("\nReading back the same register locations written...");
-        for (int i=0; i<RD_NR; i++) begin
-          // later labs will replace this loop with iterating through a
-          // scoreboard to determine which addresses were written and
-          // the expected values to be read back
-          @(posedge clk) 
-          if (READ_ORDER == 0) read_pointer = i;
-          else if (READ_ORDER == 1) read_pointer = 31 - (i % 32);
-          else if (READ_ORDER == 2) read_pointer = $unsigned($random%32);
-          @(negedge clk) print_results;
-          check_result;
-        end
-        @(posedge clk) ;
-      end
+    // read back and display same three register locations
+    $display("\nReading back the same register locations written...");
+    for (int i=0; i<RD_NR; i++) begin
+      // later labs will replace this loop with iterating through a
+      // scoreboard to determine which addresses were written and
+      // the expected values to be read back
+      @(posedge clk) 
+      if (READ_ORDER == 0) read_pointer = i;
+      else if (READ_ORDER == 1) read_pointer = 31 - (i % 32);
+      else if (READ_ORDER == 2) read_pointer = $unsigned($random%32);
+      @(negedge clk) print_results;
+      check_result;
     end
+    @(posedge clk) ;
     $display("\nNumber of tests passed out of all tests for: %0d/%0d", passed_tests, total_tests);
     $display("\n***********************************************************");
     $display(  "***  THIS IS A SELF-CHECKING TESTBENCH.  YOU DON'T  ***");
@@ -194,5 +187,18 @@ module instr_register_test
       iw_reg_test[i] = '{opc:ZERO,default:0};
     end
   endfunction:reset_iw_reg_test
+
+  function void final_report;
+    file = $fopen("../../regression_status.txt", "a")
+    if (passed_tests != total_tests)
+    begin
+      $fwrite(file, "%s: failed", TEST_NAME);
+    end
+    else
+    begin
+      $fwrite(file, "%s: passed", TEST_NAME);
+    end
+    $fclose(file);
+  endfunction:final_report
 
 endmodule: instr_register_test

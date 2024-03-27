@@ -4,6 +4,14 @@ call clean.bat
 call build.bat
 ::========================================================================================
 cd ../sim
-:: vsim -gui -do run.do
-
-vsim -c -do run.do
+:: echo %0 %1 %2 %3 %4 %5
+if "%6" == "gui" ( 
+    vsim -%6 -do "do run.do %1 %2 %3 %4 %5"
+)
+else (
+    if "%6" == "c" (
+        vsim -%6 -do "do run.do %1 %2 %3 %4 %5"
+    ) else (
+        echo "Parameter 6 can only be gui or c!"
+    )
+)
