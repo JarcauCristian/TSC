@@ -1,10 +1,20 @@
-
-case_inc_inc: passed
+Test run on: Tue 04/02/2024 
+case_inc_inc: failed
 case_dec_inc: failed
 case_rnd_inc: failed
 case_inc_dec: failed
-case_dec_dec: passed
+case_dec_dec: failed
 case_rnd_dec: failed
+case_inc_rnd: failed
+case_dec_rnd: failed
+case_rnd_rnd: failed
+Test run on: Tue 04/02/2024 
+case_inc_inc: passed
+case_dec_inc: passed
+case_rnd_inc: failed
+case_inc_dec: passed
+case_dec_dec: passed
+case_rnd_dec: passed
 case_inc_rnd: failed
 case_dec_rnd: failed
 case_rnd_rnd: failed

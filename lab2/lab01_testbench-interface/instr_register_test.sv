@@ -30,6 +30,7 @@ module instr_register_test
   parameter WRITE_ORDER = 0;
   parameter READ_ORDER = 0;
   parameter TEST_NAME = "";
+
   instruction_t iw_reg_test [0:31];
 
   initial begin
@@ -49,12 +50,11 @@ module instr_register_test
     reset_n        = 1'b1;          // deassert reset_n (active low)
     @(posedge clk) load_en = 1'b1;  // enable writing to register
     $display("\nWriting values to register stack...");
-     //repeat (3) begin JSC 06.03.2024
-     repeat (WR_NR) begin
-       @(posedge clk) randomize_transaction;
-       @(negedge clk) print_transaction;
-     end
-     @(posedge clk) load_en = 1'b0;  // turn-off writing to register
+    repeat (WR_NR) begin
+      @(posedge clk) randomize_transaction;
+      @(negedge clk) print_transaction;
+    end
+    @(posedge clk) load_en = 1'b0;  // turn-off writing to register
 
     // read back and display same three register locations
     $display("\nReading back the same register locations written...");
@@ -67,11 +67,13 @@ module instr_register_test
       else if (READ_ORDER == 1) read_pointer = 31 - (i % 32);
       else if (READ_ORDER == 2) read_pointer = $unsigned($random%32);
       @(negedge clk) print_results;
-      check_result;
+      check_result(i);
     end
-    @(posedge clk) ;
+
+    @(posedge clk);
     final_report;
     $display("\nNumber of tests passed out of all tests for: %0d/%0d", passed_tests, total_tests);
+
     $display("\n***********************************************************");
     $display(  "***  THIS IS A SELF-CHECKING TESTBENCH.  YOU DON'T  ***");
     $display(  "***  NEED TO VISUALLY VERIFY THAT THE OUTPUT VALUES     ***");
@@ -88,6 +90,7 @@ module instr_register_test
     // addresses of 0, 1 and 2.  This will be replaceed with randomizeed
     // write_pointer values in a later lab
     //
+
     if (WRITE_ORDER == 0)
     begin
       static int temp = 0;
@@ -135,8 +138,9 @@ module instr_register_test
     $display("  result    = %0d", instruction_word.result);
   endfunction: print_results
 
-  function void check_result;
-   $display("  read_pointer = %0d", read_pointer);
+  function void check_result(int i);
+    $display("  read_pointer = %0d", read_pointer);
+
     if ((instruction_word.op_a === iw_reg_test[read_pointer].op_a) && (instruction_word.op_b === iw_reg_test[read_pointer].op_b) && (instruction_word.opc === iw_reg_test[read_pointer].opc))
     begin
       operand_d_t result;
@@ -163,7 +167,7 @@ module instr_register_test
       $display("  operand_b = %0d", iw_reg_test[read_pointer].op_b);
 
       $display("\nCalculated Test Result: %0d\n", result);
-      $display(" instruction_word.res = %0d\n", instruction_word.result);
+      $display(" Dut Test Result = %0d\n", instruction_word.result);
 
       if (result === instruction_word.result) 
       begin
@@ -179,6 +183,7 @@ module instr_register_test
     begin
       $display("What was stored in test does not match what was read from DUT.\n");
     end
+    
     total_tests++;
   endfunction: check_result
 
