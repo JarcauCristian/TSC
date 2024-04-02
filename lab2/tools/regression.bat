@@ -1,10 +1,13 @@
 @echo off
 setlocal enabledelayedexpansion
 
+set DATESTAMP=%DATE%
+echo Test run on: %DATESTAMP% >>  ..\reports\regression_status.txt
+
 FOR /L %%G IN (0,1,2) DO (
     FOR /L %%H IN (0,1,2) DO (
-        SET /A WR_NR=%RANDOM% %% 3 + 1
-        SET /A RD_NR=%RANDOM% %% 3 + 1
+        SET /A WR_NR=%RANDOM% %% 50 + 1
+        SET /A RD_NR=%RANDOM% %% 50 + 1
 
         IF %%H == 0 (
             SET write_order=inc
