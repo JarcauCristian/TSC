@@ -1,20 +1,31 @@
-Test run on: Tue 04/02/2024 
-case_inc_inc: failed
-case_dec_inc: failed
-case_rnd_inc: failed
-case_inc_dec: failed
-case_dec_dec: failed
-case_rnd_dec: failed
-case_inc_rnd: failed
-case_dec_rnd: failed
-case_rnd_rnd: failed
-Test run on: Tue 04/02/2024 
-case_inc_inc: passed
-case_dec_inc: passed
-case_rnd_inc: failed
-case_inc_dec: passed
-case_dec_dec: passed
-case_rnd_dec: passed
-case_inc_rnd: failed
-case_dec_rnd: failed
-case_rnd_rnd: failed
+case1: failed
+case2: failed
+case3: failed
+Test run on: Wed 04/10/2024 
+Test run on: Wed 04/10/2024 
+Test run on: Wed 04/10/2024 
+case1: failed
+case2: failed
+case3: failed
+Test run on: Wed 04/10/2024 
+case1: failed
+case2: failed
+case3: failed
+case4: failed
+case5: failed
+case6: failed
+case7: failed
+case8: failed
+case9: failed
+case10: failed
+Test run on: Wed 04/10/2024 
+case1: failed
+case2: failed
+case3: failed
+case4: failed
+case5: failed
+case6: failed
+case7: failed
+case8: failed
+case9: failed
+case10: failed

@@ -1,0 +1,1121 @@
+# 1
+# Model Technology ModelSim Microsemi vlog 10.5c Compiler 2016.07 Jul 21 2016
+# Start time: 08:49:45 on Apr 10,2024
+# vlog -sv -timescale 1ps/1ps -work work -f sources.txt 
+# -- Compiling package instr_register_pkg
+# -- Compiling module instr_register
+# -- Importing package instr_register_pkg
+# -- Compiling module instr_register_test
+# -- Compiling module top
+# 
+# Top level modules:
+# 	top
+# End time: 08:49:45 on Apr 10,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vsim -novopt -quiet -nocoverage "+notimingchecks" "+nowarnTSCALE" -sva top -GTEST_NAME=case2 -GWR_NR=50 -GRD_NR=32 -GWRITE_ORDER=2 -GSEED_VAL=24637671 -GREAD_ORDER=2 
+# Start time: 08:49:45 on Apr 10,2024
+# //  ModelSim Microsemi 10.5c Jul 21 2016
+# //
+# //  Copyright 1991-2016 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  ModelSim Microsemi and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# 
+# 
+# ***********************************************************
+# ***  THIS IS A SELF-CHECKING TESTBENCH.  YOU DON'T  ***
+# ***  NEED TO VISUALLY VERIFY THAT THE OUTPUT VALUES     ***
+# ***  MATCH THE INPUT VALUES FOR EACH REGISTER LOCATION  ***
+# ***********************************************************
+# 
+# Reseting the instruction register...
+# 
+# Writing values to register stack...
+# Randomized Transaction Display for Position: 4
+# operand_a: -6
+# operand_b: 1
+# opcode: 5
+# Time: 36
+# 
+# Writing to register location 4: 
+#   opcode = 5 (MULT)
+#   operand_a = -6
+#   operand_b = 1
+# 
+# Randomized Transaction Display for Position: 17
+# operand_a: 1
+# operand_b: 5
+# opcode: 1
+# Time: 46
+# 
+# Writing to register location 17: 
+#   opcode = 1 (PASSA)
+#   operand_a = 1
+#   operand_b = 5
+# 
+# Randomized Transaction Display for Position: 28
+# operand_a: 5
+# operand_b: 1
+# opcode: 4
+# Time: 56
+# 
+# Writing to register location 28: 
+#   opcode = 4 (SUB)
+#   operand_a = 5
+#   operand_b = 1
+# 
+# Randomized Transaction Display for Position: 13
+# operand_a: 1
+# operand_b: 12
+# opcode: 5
+# Time: 66
+# 
+# Writing to register location 13: 
+#   opcode = 5 (MULT)
+#   operand_a = 1
+#   operand_b = 12
+# 
+# Randomized Transaction Display for Position: 26
+# operand_a: 12
+# operand_b: 13
+# opcode: 2
+# Time: 76
+# 
+# Writing to register location 26: 
+#   opcode = 2 (PASSB)
+#   operand_a = 12
+#   operand_b = 13
+# 
+# Randomized Transaction Display for Position: 22
+# operand_a: 13
+# operand_b: 10
+# opcode: 6
+# Time: 86
+# 
+# Writing to register location 22: 
+#   opcode = 6 (DIV)
+#   operand_a = 13
+#   operand_b = 10
+# 
+# Randomized Transaction Display for Position: 19
+# operand_a: -6
+# operand_b: 6
+# opcode: 3
+# Time: 96
+# 
+# Writing to register location 19: 
+#   opcode = 3 (ADD)
+#   operand_a = -6
+#   operand_b = 6
+# 
+# Randomized Transaction Display for Position: 15
+# operand_a: -10
+# operand_b: 3
+# opcode: 7
+# Time: 106
+# 
+# Writing to register location 15: 
+#   opcode = 7 (MOD)
+#   operand_a = -10
+#   operand_b = 3
+# 
+# Randomized Transaction Display for Position: 30
+# operand_a: -13
+# operand_b: 15
+# opcode: 6
+# Time: 116
+# 
+# Writing to register location 30: 
+#   opcode = 6 (DIV)
+#   operand_a = -13
+#   operand_b = 15
+# 
+# Randomized Transaction Display for Position: 23
+# operand_a: -1
+# operand_b: 14
+# opcode: 7
+# Time: 126
+# 
+# Writing to register location 23: 
+#   opcode = 7 (MOD)
+#   operand_a = -1
+#   operand_b = 14
+# 
+# Randomized Transaction Display for Position: 28
+# operand_a: -2
+# operand_b: 7
+# opcode: 4
+# Time: 136
+# 
+# Writing to register location 28: 
+#   opcode = 4 (SUB)
+#   operand_a = -2
+#   operand_b = 7
+# 
+# Randomized Transaction Display for Position: 5
+# operand_a: -9
+# operand_b: 12
+# opcode: 5
+# Time: 146
+# 
+# Writing to register location 5: 
+#   opcode = 5 (MULT)
+#   operand_a = -9
+#   operand_b = 12
+# 
+# Randomized Transaction Display for Position: 17
+# operand_a: 12
+# operand_b: 5
+# opcode: 1
+# Time: 156
+# 
+# Writing to register location 17: 
+#   opcode = 1 (PASSA)
+#   operand_a = 12
+#   operand_b = 5
+# 
+# Randomized Transaction Display for Position: 31
+# operand_a: -11
+# operand_b: 1
+# opcode: 7
+# Time: 166
+# 
+# Writing to register location 31: 
+#   opcode = 7 (MOD)
+#   operand_a = -11
+#   operand_b = 1
+# 
+# Randomized Transaction Display for Position: 11
+# operand_a: 1
+# operand_b: 15
+# opcode: 3
+# Time: 176
+# 
+# Writing to register location 11: 
+#   opcode = 3 (ADD)
+#   operand_a = 1
+#   operand_b = 15
+# 
+# Randomized Transaction Display for Position: 10
+# operand_a: -1
+# operand_b: 11
+# opcode: 2
+# Time: 186
+# 
+# Writing to register location 10: 
+#   opcode = 2 (PASSB)
+#   operand_a = -1
+#   operand_b = 11
+# 
+# Randomized Transaction Display for Position: 5
+# operand_a: 11
+# operand_b: 10
+# opcode: 5
+# Time: 196
+# 
+# Writing to register location 5: 
+#   opcode = 5 (MULT)
+#   operand_a = 11
+#   operand_b = 10
+# 
+# Randomized Transaction Display for Position: 9
+# operand_a: -6
+# operand_b: 5
+# opcode: 1
+# Time: 206
+# 
+# Writing to register location 9: 
+#   opcode = 1 (PASSA)
+#   operand_a = -6
+#   operand_b = 5
+# 
+# Randomized Transaction Display for Position: 0
+# operand_a: -11
+# operand_b: 9
+# opcode: 0
+# Time: 216
+# 
+# Writing to register location 0: 
+#   opcode = 0 (ZERO)
+#   operand_a = -11
+#   operand_b = 9
+# 
+# Randomized Transaction Display for Position: 6
+# operand_a: 9
+# operand_b: 0
+# opcode: 6
+# Time: 226
+# 
+# Writing to register location 6: 
+#   opcode = 6 (DIV)
+#   operand_a = 9
+#   operand_b = 0
+# 
+# Randomized Transaction Display for Position: 13
+# operand_a: 0
+# operand_b: 6
+# opcode: 5
+# Time: 236
+# 
+# Writing to register location 13: 
+#   opcode = 5 (MULT)
+#   operand_a = 0
+#   operand_b = 6
+# 
+# Randomized Transaction Display for Position: 3
+# operand_a: -10
+# operand_b: 13
+# opcode: 3
+# Time: 246
+# 
+# Writing to register location 3: 
+#   opcode = 3 (ADD)
+#   operand_a = -10
+#   operand_b = 13
+# 
+# Randomized Transaction Display for Position: 26
+# operand_a: -3
+# operand_b: 3
+# opcode: 2
+# Time: 256
+# 
+# Writing to register location 26: 
+#   opcode = 2 (PASSB)
+#   operand_a = -3
+#   operand_b = 3
+# 
+# Randomized Transaction Display for Position: 15
+# operand_a: 3
+# operand_b: 10
+# opcode: 7
+# Time: 266
+# 
+# Writing to register location 15: 
+#   opcode = 7 (MOD)
+#   operand_a = 3
+#   operand_b = 10
+# 
+# Randomized Transaction Display for Position: 11
+# operand_a: 10
+# operand_b: 15
+# opcode: 3
+# Time: 276
+# 
+# Writing to register location 11: 
+#   opcode = 3 (ADD)
+#   operand_a = 10
+#   operand_b = 15
+# 
+# Randomized Transaction Display for Position: 30
+# operand_a: 15
+# operand_b: 11
+# opcode: 6
+# Time: 286
+# 
+# Writing to register location 30: 
+#   opcode = 6 (DIV)
+#   operand_a = 15
+#   operand_b = 11
+# 
+# Randomized Transaction Display for Position: 22
+# operand_a: -5
+# operand_b: 14
+# opcode: 6
+# Time: 296
+# 
+# Writing to register location 22: 
+#   opcode = 6 (DIV)
+#   operand_a = -5
+#   operand_b = 14
+# 
+# Randomized Transaction Display for Position: 5
+# operand_a: 14
+# operand_b: 6
+# opcode: 5
+# Time: 306
+# 
+# Writing to register location 5: 
+#   opcode = 5 (MULT)
+#   operand_a = 14
+#   operand_b = 6
+# 
+# Randomized Transaction Display for Position: 9
+# operand_a: 6
+# operand_b: 5
+# opcode: 1
+# Time: 316
+# 
+# Writing to register location 9: 
+#   opcode = 1 (PASSA)
+#   operand_a = 6
+#   operand_b = 5
+# 
+# Randomized Transaction Display for Position: 26
+# operand_a: -11
+# operand_b: 9
+# opcode: 2
+# Time: 326
+# 
+# Writing to register location 26: 
+#   opcode = 2 (PASSB)
+#   operand_a = -11
+#   operand_b = 9
+# 
+# Randomized Transaction Display for Position: 27
+# operand_a: -7
+# operand_b: 10
+# opcode: 3
+# Time: 336
+# 
+# Writing to register location 27: 
+#   opcode = 3 (ADD)
+#   operand_a = -7
+#   operand_b = 10
+# 
+# Randomized Transaction Display for Position: 17
+# operand_a: 10
+# operand_b: 11
+# opcode: 1
+# Time: 346
+# 
+# Writing to register location 17: 
+#   opcode = 1 (PASSA)
+#   operand_a = 10
+#   operand_b = 11
+# 
+# Randomized Transaction Display for Position: 5
+# operand_a: -5
+# operand_b: 1
+# opcode: 5
+# Time: 356
+# 
+# Writing to register location 5: 
+#   opcode = 5 (MULT)
+#   operand_a = -5
+#   operand_b = 1
+# 
+# Randomized Transaction Display for Position: 26
+# operand_a: -15
+# operand_b: 5
+# opcode: 2
+# Time: 366
+# 
+# Writing to register location 26: 
+#   opcode = 2 (PASSB)
+#   operand_a = -15
+#   operand_b = 5
+# 
+# Randomized Transaction Display for Position: 16
+# operand_a: 5
+# operand_b: 10
+# opcode: 0
+# Time: 376
+# 
+# Writing to register location 16: 
+#   opcode = 0 (ZERO)
+#   operand_a = 5
+#   operand_b = 10
+# 
+# Randomized Transaction Display for Position: 29
+# operand_a: 10
+# operand_b: 0
+# opcode: 5
+# Time: 386
+# 
+# Writing to register location 29: 
+#   opcode = 5 (MULT)
+#   operand_a = 10
+#   operand_b = 0
+# 
+# Randomized Transaction Display for Position: 19
+# operand_a: 0
+# operand_b: 13
+# opcode: 3
+# Time: 396
+# 
+# Writing to register location 19: 
+#   opcode = 3 (ADD)
+#   operand_a = 0
+#   operand_b = 13
+# 
+# Randomized Transaction Display for Position: 27
+# operand_a: -3
+# operand_b: 3
+# opcode: 3
+# Time: 406
+# 
+# Writing to register location 27: 
+#   opcode = 3 (ADD)
+#   operand_a = -3
+#   operand_b = 3
+# 
+# Randomized Transaction Display for Position: 15
+# operand_a: -13
+# operand_b: 11
+# opcode: 7
+# Time: 416
+# 
+# Writing to register location 15: 
+#   opcode = 7 (MOD)
+#   operand_a = -13
+#   operand_b = 11
+# 
+# Randomized Transaction Display for Position: 30
+# operand_a: 11
+# operand_b: 15
+# opcode: 6
+# Time: 426
+# 
+# Writing to register location 30: 
+#   opcode = 6 (DIV)
+#   operand_a = 11
+#   operand_b = 15
+# 
+# Randomized Transaction Display for Position: 2
+# operand_a: 15
+# operand_b: 14
+# opcode: 2
+# Time: 436
+# 
+# Writing to register location 2: 
+#   opcode = 2 (PASSB)
+#   operand_a = 15
+#   operand_b = 14
+# 
+# Randomized Transaction Display for Position: 6
+# operand_a: 14
+# operand_b: 2
+# opcode: 6
+# Time: 446
+# 
+# Writing to register location 6: 
+#   opcode = 6 (DIV)
+#   operand_a = 14
+#   operand_b = 2
+# 
+# Randomized Transaction Display for Position: 9
+# operand_a: 2
+# operand_b: 6
+# opcode: 1
+# Time: 456
+# 
+# Writing to register location 9: 
+#   opcode = 1 (PASSA)
+#   operand_a = 2
+#   operand_b = 6
+# 
+# Randomized Transaction Display for Position: 29
+# operand_a: -10
+# operand_b: 9
+# opcode: 5
+# Time: 466
+# 
+# Writing to register location 29: 
+#   opcode = 5 (MULT)
+#   operand_a = -10
+#   operand_b = 9
+# 
+# Randomized Transaction Display for Position: 15
+# operand_a: -7
+# operand_b: 13
+# opcode: 7
+# Time: 476
+# 
+# Writing to register location 15: 
+#   opcode = 7 (MOD)
+#   operand_a = -7
+#   operand_b = 13
+# 
+# Randomized Transaction Display for Position: 28
+# operand_a: 13
+# operand_b: 15
+# opcode: 4
+# Time: 486
+# 
+# Writing to register location 28: 
+#   opcode = 4 (SUB)
+#   operand_a = 13
+#   operand_b = 15
+# 
+# Randomized Transaction Display for Position: 30
+# operand_a: 15
+# operand_b: 12
+# opcode: 6
+# Time: 496
+# 
+# Writing to register location 30: 
+#   opcode = 6 (DIV)
+#   operand_a = 15
+#   operand_b = 12
+# 
+# Randomized Transaction Display for Position: 8
+# operand_a: -4
+# operand_b: 14
+# opcode: 0
+# Time: 506
+# 
+# Writing to register location 8: 
+#   opcode = 0 (ZERO)
+#   operand_a = -4
+#   operand_b = 14
+# 
+# Randomized Transaction Display for Position: 28
+# operand_a: 14
+# operand_b: 8
+# opcode: 4
+# Time: 516
+# 
+# Writing to register location 28: 
+#   opcode = 4 (SUB)
+#   operand_a = 14
+#   operand_b = 8
+# 
+# Randomized Transaction Display for Position: 3
+# operand_a: 8
+# operand_b: 12
+# opcode: 3
+# Time: 526
+# 
+# Writing to register location 3: 
+#   opcode = 3 (ADD)
+#   operand_a = 8
+#   operand_b = 12
+# 
+# 
+# Reading back the same register locations written...
+# Read from register location 20: 
+#   opcode = 0 (ZERO)
+#   operand_a = 0
+#   operand_b = 0
+#   result    = 0
+#   read_pointer = 20
+# What was stored in test does not match what was read from DUT.
+# 
+# Read from register location 22: 
+#   opcode = 6 (DIV)
+#   operand_a = -5
+#   operand_b = 14
+#   result    = 0
+#   read_pointer = 22
+# 
+# What was stored in test matches what came from DUT. Starting cheking if results are matching.
+# 
+# Check Result:
+#   read_pointer = 22
+#   opcode = 6 (DIV)
+#   operand_a = -5
+#   operand_b = 14
+# 
+# Calculated Test Result: 0
+# 
+#  Dut Test Result = 0
+# 
+# Results are matching!
+# 
+# Read from register location 24: 
+#   opcode = 0 (ZERO)
+#   operand_a = 0
+#   operand_b = 0
+#   result    = 0
+#   read_pointer = 24
+# What was stored in test does not match what was read from DUT.
+# 
+# Read from register location 0: 
+#   opcode = 0 (ZERO)
+#   operand_a = -11
+#   operand_b = 9
+#   result    = 0
+#   read_pointer = 0
+# 
+# What was stored in test matches what came from DUT. Starting cheking if results are matching.
+# 
+# Check Result:
+#   read_pointer = 0
+#   opcode = 0 (ZERO)
+#   operand_a = -11
+#   operand_b = 9
+# 
+# Calculated Test Result: 0
+# 
+#  Dut Test Result = 0
+# 
+# Results are matching!
+# 
+# Read from register location 17: 
+#   opcode = 1 (PASSA)
+#   operand_a = 10
+#   operand_b = 11
+#   result    = 10
+#   read_pointer = 17
+# 
+# What was stored in test matches what came from DUT. Starting cheking if results are matching.
+# 
+# Check Result:
+#   read_pointer = 17
+#   opcode = 1 (PASSA)
+#   operand_a = 10
+#   operand_b = 11
+# 
+# Calculated Test Result: 10
+# 
+#  Dut Test Result = 10
+# 
+# Results are matching!
+# 
+# Read from register location 30: 
+#   opcode = 6 (DIV)
+#   operand_a = 15
+#   operand_b = 12
+#   result    = 1
+#   read_pointer = 30
+# 
+# What was stored in test matches what came from DUT. Starting cheking if results are matching.
+# 
+# Check Result:
+#   read_pointer = 30
+#   opcode = 6 (DIV)
+#   operand_a = 15
+#   operand_b = 12
+# 
+# Calculated Test Result: 1
+# 
+#  Dut Test Result = 1
+# 
+# Results are matching!
+# 
+# Read from register location 10: 
+#   opcode = 2 (PASSB)
+#   operand_a = -1
+#   operand_b = 11
+#   result    = 11
+#   read_pointer = 10
+# 
+# What was stored in test matches what came from DUT. Starting cheking if results are matching.
+# 
+# Check Result:
+#   read_pointer = 10
+#   opcode = 2 (PASSB)
+#   operand_a = -1
+#   operand_b = 11
+# 
+# Calculated Test Result: 11
+# 
+#  Dut Test Result = 11
+# 
+# Results are matching!
+# 
+# Read from register location 5: 
+#   opcode = 5 (MULT)
+#   operand_a = -5
+#   operand_b = 1
+#   result    = -5
+#   read_pointer = 5
+# 
+# What was stored in test matches what came from DUT. Starting cheking if results are matching.
+# 
+# Check Result:
+#   read_pointer = 5
+#   opcode = 5 (MULT)
+#   operand_a = -5
+#   operand_b = 1
+# 
+# Calculated Test Result: -5
+# 
+#  Dut Test Result = -5
+# 
+# Results are matching!
+# 
+# Read from register location 6: 
+#   opcode = 6 (DIV)
+#   operand_a = 14
+#   operand_b = 2
+#   result    = 7
+#   read_pointer = 6
+# 
+# What was stored in test matches what came from DUT. Starting cheking if results are matching.
+# 
+# Check Result:
+#   read_pointer = 6
+#   opcode = 6 (DIV)
+#   operand_a = 14
+#   operand_b = 2
+# 
+# Calculated Test Result: 7
+# 
+#  Dut Test Result = 7
+# 
+# Results are matching!
+# 
+# Read from register location 14: 
+#   opcode = 0 (ZERO)
+#   operand_a = 0
+#   operand_b = 0
+#   result    = 0
+#   read_pointer = 14
+# What was stored in test does not match what was read from DUT.
+# 
+# Read from register location 6: 
+#   opcode = 6 (DIV)
+#   operand_a = 14
+#   operand_b = 2
+#   result    = 7
+#   read_pointer = 6
+# 
+# What was stored in test matches what came from DUT. Starting cheking if results are matching.
+# 
+# Check Result:
+#   read_pointer = 6
+#   opcode = 6 (DIV)
+#   operand_a = 14
+#   operand_b = 2
+# 
+# Calculated Test Result: 7
+# 
+#  Dut Test Result = 7
+# 
+# Results are matching!
+# 
+# Read from register location 25: 
+#   opcode = 0 (ZERO)
+#   operand_a = 0
+#   operand_b = 0
+#   result    = 0
+#   read_pointer = 25
+# What was stored in test does not match what was read from DUT.
+# 
+# Read from register location 11: 
+#   opcode = 3 (ADD)
+#   operand_a = 10
+#   operand_b = 15
+#   result    = 25
+#   read_pointer = 11
+# 
+# What was stored in test matches what came from DUT. Starting cheking if results are matching.
+# 
+# Check Result:
+#   read_pointer = 11
+#   opcode = 3 (ADD)
+#   operand_a = 10
+#   operand_b = 15
+# 
+# Calculated Test Result: 25
+# 
+#  Dut Test Result = 25
+# 
+# Results are matching!
+# 
+# Read from register location 12: 
+#   opcode = 0 (ZERO)
+#   operand_a = 0
+#   operand_b = 0
+#   result    = 0
+#   read_pointer = 12
+# What was stored in test does not match what was read from DUT.
+# 
+# Read from register location 21: 
+#   opcode = 0 (ZERO)
+#   operand_a = 0
+#   operand_b = 0
+#   result    = 0
+#   read_pointer = 21
+# What was stored in test does not match what was read from DUT.
+# 
+# Read from register location 6: 
+#   opcode = 6 (DIV)
+#   operand_a = 14
+#   operand_b = 2
+#   result    = 7
+#   read_pointer = 6
+# 
+# What was stored in test matches what came from DUT. Starting cheking if results are matching.
+# 
+# Check Result:
+#   read_pointer = 6
+#   opcode = 6 (DIV)
+#   operand_a = 14
+#   operand_b = 2
+# 
+# Calculated Test Result: 7
+# 
+#  Dut Test Result = 7
+# 
+# Results are matching!
+# 
+# Read from register location 0: 
+#   opcode = 0 (ZERO)
+#   operand_a = -11
+#   operand_b = 9
+#   result    = 0
+#   read_pointer = 0
+# 
+# What was stored in test matches what came from DUT. Starting cheking if results are matching.
+# 
+# Check Result:
+#   read_pointer = 0
+#   opcode = 0 (ZERO)
+#   operand_a = -11
+#   operand_b = 9
+# 
+# Calculated Test Result: 0
+# 
+#  Dut Test Result = 0
+# 
+# Results are matching!
+# 
+# Read from register location 7: 
+#   opcode = 0 (ZERO)
+#   operand_a = 0
+#   operand_b = 0
+#   result    = 0
+#   read_pointer = 7
+# What was stored in test does not match what was read from DUT.
+# 
+# Read from register location 16: 
+#   opcode = 0 (ZERO)
+#   operand_a = 5
+#   operand_b = 10
+#   result    = 0
+#   read_pointer = 16
+# 
+# What was stored in test matches what came from DUT. Starting cheking if results are matching.
+# 
+# Check Result:
+#   read_pointer = 16
+#   opcode = 0 (ZERO)
+#   operand_a = 5
+#   operand_b = 10
+# 
+# Calculated Test Result: 0
+# 
+#  Dut Test Result = 0
+# 
+# Results are matching!
+# 
+# Read from register location 16: 
+#   opcode = 0 (ZERO)
+#   operand_a = 5
+#   operand_b = 10
+#   result    = 0
+#   read_pointer = 16
+# 
+# What was stored in test matches what came from DUT. Starting cheking if results are matching.
+# 
+# Check Result:
+#   read_pointer = 16
+#   opcode = 0 (ZERO)
+#   operand_a = 5
+#   operand_b = 10
+# 
+# Calculated Test Result: 0
+# 
+#  Dut Test Result = 0
+# 
+# Results are matching!
+# 
+# Read from register location 8: 
+#   opcode = 0 (ZERO)
+#   operand_a = -4
+#   operand_b = 14
+#   result    = 0
+#   read_pointer = 8
+# 
+# What was stored in test matches what came from DUT. Starting cheking if results are matching.
+# 
+# Check Result:
+#   read_pointer = 8
+#   opcode = 0 (ZERO)
+#   operand_a = -4
+#   operand_b = 14
+# 
+# Calculated Test Result: 0
+# 
+#  Dut Test Result = 0
+# 
+# Results are matching!
+# 
+# Read from register location 27: 
+#   opcode = 3 (ADD)
+#   operand_a = -3
+#   operand_b = 3
+#   result    = 0
+#   read_pointer = 27
+# 
+# What was stored in test matches what came from DUT. Starting cheking if results are matching.
+# 
+# Check Result:
+#   read_pointer = 27
+#   opcode = 3 (ADD)
+#   operand_a = -3
+#   operand_b = 3
+# 
+# Calculated Test Result: 0
+# 
+#  Dut Test Result = 0
+# 
+# Results are matching!
+# 
+# Read from register location 9: 
+#   opcode = 1 (PASSA)
+#   operand_a = 2
+#   operand_b = 6
+#   result    = 2
+#   read_pointer = 9
+# 
+# What was stored in test matches what came from DUT. Starting cheking if results are matching.
+# 
+# Check Result:
+#   read_pointer = 9
+#   opcode = 1 (PASSA)
+#   operand_a = 2
+#   operand_b = 6
+# 
+# Calculated Test Result: 2
+# 
+#  Dut Test Result = 2
+# 
+# Results are matching!
+# 
+# Read from register location 1: 
+#   opcode = 0 (ZERO)
+#   operand_a = 0
+#   operand_b = 0
+#   result    = 0
+#   read_pointer = 1
+# What was stored in test does not match what was read from DUT.
+# 
+# Read from register location 29: 
+#   opcode = 5 (MULT)
+#   operand_a = -10
+#   operand_b = 9
+#   result    = -90
+#   read_pointer = 29
+# 
+# What was stored in test matches what came from DUT. Starting cheking if results are matching.
+# 
+# Check Result:
+#   read_pointer = 29
+#   opcode = 5 (MULT)
+#   operand_a = -10
+#   operand_b = 9
+# 
+# Calculated Test Result: -90
+# 
+#  Dut Test Result = -90
+# 
+# Results are matching!
+# 
+# Read from register location 23: 
+#   opcode = 7 (MOD)
+#   operand_a = -1
+#   operand_b = 14
+#   result    = -1
+#   read_pointer = 23
+# 
+# What was stored in test matches what came from DUT. Starting cheking if results are matching.
+# 
+# Check Result:
+#   read_pointer = 23
+#   opcode = 7 (MOD)
+#   operand_a = -1
+#   operand_b = 14
+# 
+# Calculated Test Result: -1
+# 
+#  Dut Test Result = -1
+# 
+# Results are matching!
+# 
+# Read from register location 14: 
+#   opcode = 0 (ZERO)
+#   operand_a = 0
+#   operand_b = 0
+#   result    = 0
+#   read_pointer = 14
+# What was stored in test does not match what was read from DUT.
+# 
+# Read from register location 15: 
+#   opcode = 7 (MOD)
+#   operand_a = -7
+#   operand_b = 13
+#   result    = -7
+#   read_pointer = 15
+# 
+# What was stored in test matches what came from DUT. Starting cheking if results are matching.
+# 
+# Check Result:
+#   read_pointer = 15
+#   opcode = 7 (MOD)
+#   operand_a = -7
+#   operand_b = 13
+# 
+# Calculated Test Result: -7
+# 
+#  Dut Test Result = -7
+# 
+# Results are matching!
+# 
+# Read from register location 18: 
+#   opcode = 0 (ZERO)
+#   operand_a = 0
+#   operand_b = 0
+#   result    = 0
+#   read_pointer = 18
+# What was stored in test does not match what was read from DUT.
+# 
+# Read from register location 14: 
+#   opcode = 0 (ZERO)
+#   operand_a = 0
+#   operand_b = 0
+#   result    = 0
+#   read_pointer = 14
+# What was stored in test does not match what was read from DUT.
+# 
+# Read from register location 11: 
+#   opcode = 3 (ADD)
+#   operand_a = 10
+#   operand_b = 15
+#   result    = 25
+#   read_pointer = 11
+# 
+# What was stored in test matches what came from DUT. Starting cheking if results are matching.
+# 
+# Check Result:
+#   read_pointer = 11
+#   opcode = 3 (ADD)
+#   operand_a = 10
+#   operand_b = 15
+# 
+# Calculated Test Result: 25
+# 
+#  Dut Test Result = 25
+# 
+# Results are matching!
+# 
+# Read from register location 7: 
+#   opcode = 0 (ZERO)
+#   operand_a = 0
+#   operand_b = 0
+#   result    = 0
+#   read_pointer = 7
+# What was stored in test does not match what was read from DUT.
+# 
+# 
+# Number of tests passed out of all tests for: 20/32
+# 
+# ***********************************************************
+# ***  THIS IS A SELF-CHECKING TESTBENCH.  YOU DON'T  ***
+# ***  NEED TO VISUALLY VERIFY THAT THE OUTPUT VALUES     ***
+# ***  MATCH THE INPUT VALUES FOR EACH REGISTER LOCATION  ***
+# ***********************************************************
+# 
+# ** Note: $finish    : ../lab01_testbench-interface/instr_register_test.sv(83)
+#    Time: 866 ns  Iteration: 1  Instance: /top/test
+# End time: 08:49:45 on Apr 10,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0

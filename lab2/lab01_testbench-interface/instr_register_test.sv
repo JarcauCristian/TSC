@@ -20,7 +20,6 @@ module instr_register_test
 
   timeunit 1ns/1ns;
 
-  int seed = 555;
   int passed_tests = 0;
   int total_tests = 0;
 
@@ -30,6 +29,8 @@ module instr_register_test
   parameter WRITE_ORDER = 0;
   parameter READ_ORDER = 0;
   parameter TEST_NAME = "";
+  parameter SEED_VAL = 555;
+  int seed = SEED_VAL;
 
   instruction_t iw_reg_test [0:31];
 
@@ -157,7 +158,14 @@ module instr_register_test
             result = 'b0;
           else
             result = iw_reg_test[read_pointer].op_a / iw_reg_test[read_pointer].op_b;
-          MOD : result = iw_reg_test[read_pointer].op_a % iw_reg_test[read_pointer].op_b;
+          MOD : if (iw_reg_test[read_pointer].op_b === {32{1'b0}})
+            result = 'b0;
+          else
+            result = iw_reg_test[read_pointer].op_a % iw_reg_test[read_pointer].op_b;
+          POV : if (iw_reg_test[read_pointer].op_a === {32{1'b0}})
+            result = 'b0;
+          else
+            result = iw_reg_test[read_pointer].op_a ** iw_reg_test[read_pointer].op_b;
       endcase
 
       $display("\nCheck Result:");

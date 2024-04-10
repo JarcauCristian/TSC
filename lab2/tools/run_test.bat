@@ -6,11 +6,11 @@ call build.bat
 cd ../sim
 :: echo %0 %1 %2 %3 %4 %5
 if "%6" == "gui" ( 
-    vsim -%6 -do "do run.do %1 %2 %3 %4 %5"
+    vsim -%6 -do "do run.do %1 %2 %3 %4 %5 %7"
 )
 else (
     if "%6" == "c" (
-        vsim -%6 -do "do run.do %1 %2 %3 %4 %5"
+        vsim -%6 -do "do run.do %1 %2 %3 %4 %5 %7"
     ) else (
         echo "Parameter 6 can only be gui or c!"
     )
