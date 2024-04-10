@@ -50,12 +50,13 @@ module instr_register_test
     repeat (2) @(posedge clk) ;     // hold in reset for 2 clock cycles
     reset_n        = 1'b1;          // deassert reset_n (active low)
     @(posedge clk) load_en = 1'b1;  // enable writing to register
+    reset_iw_reg_test;
     $display("\nWriting values to register stack...");
     repeat (WR_NR) begin
       @(posedge clk) randomize_transaction;
       @(negedge clk) print_transaction;
     end
-    @(posedge clk) load_en = 1'b0;  // turn-off writing to register
+    @(posedge clk) load_en = 1'b0;
 
     // read back and display same three register locations
     $display("\nReading back the same register locations written...");
@@ -67,8 +68,7 @@ module instr_register_test
       if (READ_ORDER == 0) read_pointer = i;
       else if (READ_ORDER == 1) read_pointer = 31 - (i % 32);
       else if (READ_ORDER == 2) read_pointer = $unsigned($random%32);
-      @(negedge clk) print_results;
-      check_result(i);
+      @(negedge clk) check_result(i);
     end
 
     @(posedge clk);
@@ -145,7 +145,6 @@ module instr_register_test
     if ((instruction_word.op_a === iw_reg_test[read_pointer].op_a) && (instruction_word.op_b === iw_reg_test[read_pointer].op_b) && (instruction_word.opc === iw_reg_test[read_pointer].opc))
     begin
       operand_d_t result;
-      $display("\nWhat was stored in test matches what came from DUT. Starting cheking if results are matching.");
       case (iw_reg_test[read_pointer].opc)
           ZERO : result = {64{1'b0}};
           PASSA : result = iw_reg_test[read_pointer].op_a;
@@ -179,17 +178,17 @@ module instr_register_test
 
       if (result === instruction_word.result) 
       begin
-        $display("Results are matching!\n");
+        $display("Passed!\n");
         passed_tests++;
       end
       else
       begin
-        $display("Results are not matching!\n");
+        $display("Failed!\n");
       end
     end
     else
     begin
-      $display("What was stored in test does not match what was read from DUT.\n");
+      $display("Failed!\n");
     end
     
     total_tests++;

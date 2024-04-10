@@ -1,6 +1,6 @@
 # 1
 # Model Technology ModelSim Microsemi vlog 10.5c Compiler 2016.07 Jul 21 2016
-# Start time: 08:49:43 on Apr 10,2024
+# Start time: 09:43:35 on Apr 10,2024
 # vlog -sv -timescale 1ps/1ps -work work -f sources.txt 
 # -- Compiling package instr_register_pkg
 # -- Compiling module instr_register
@@ -10,10 +10,10 @@
 # 
 # Top level modules:
 # 	top
-# End time: 08:49:43 on Apr 10,2024, Elapsed time: 0:00:00
+# End time: 09:43:35 on Apr 10,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vsim -novopt -quiet -nocoverage "+notimingchecks" "+nowarnTSCALE" -sva top -GTEST_NAME=case1 -GWR_NR=50 -GRD_NR=32 -GWRITE_ORDER=2 -GSEED_VAL=9994698 -GREAD_ORDER=2 
-# Start time: 08:49:43 on Apr 10,2024
+# Start time: 09:43:35 on Apr 10,2024
 # //  ModelSim Microsemi 10.5c Jul 21 2016
 # //
 # //  Copyright 1991-2016 Mentor Graphics Corporation
@@ -590,30 +590,35 @@
 # 
 # 
 # Reading back the same register locations written...
-# Read from register location 24: 
-#   opcode = 0 (ZERO)
-#   operand_a = 0
-#   operand_b = 0
-#   result    = 0
 #   read_pointer = 24
-# What was stored in test does not match what was read from DUT.
 # 
-# Read from register location 8: 
+# Check Result:
+#   read_pointer = 24
 #   opcode = 0 (ZERO)
 #   operand_a = 0
 #   operand_b = 0
-#   result    = 0
+# 
+# Calculated Test Result: 0
+# 
+#  Dut Test Result = 0
+# 
+# Passed!
+# 
 #   read_pointer = 8
-# What was stored in test does not match what was read from DUT.
 # 
-# Read from register location 30: 
-#   opcode = 6 (DIV)
-#   operand_a = 13
-#   operand_b = 4
-#   result    = 3
+# Check Result:
+#   read_pointer = 8
+#   opcode = 0 (ZERO)
+#   operand_a = 0
+#   operand_b = 0
+# 
+# Calculated Test Result: 0
+# 
+#  Dut Test Result = 0
+# 
+# Passed!
+# 
 #   read_pointer = 30
-# 
-# What was stored in test matches what came from DUT. Starting cheking if results are matching.
 # 
 # Check Result:
 #   read_pointer = 30
@@ -625,40 +630,51 @@
 # 
 #  Dut Test Result = 3
 # 
-# Results are matching!
+# Passed!
 # 
-# Read from register location 15: 
-#   opcode = 0 (ZERO)
-#   operand_a = 0
-#   operand_b = 0
-#   result    = 0
 #   read_pointer = 15
-# What was stored in test does not match what was read from DUT.
 # 
-# Read from register location 20: 
+# Check Result:
+#   read_pointer = 15
 #   opcode = 0 (ZERO)
 #   operand_a = 0
 #   operand_b = 0
-#   result    = 0
+# 
+# Calculated Test Result: 0
+# 
+#  Dut Test Result = 0
+# 
+# Passed!
+# 
 #   read_pointer = 20
-# What was stored in test does not match what was read from DUT.
 # 
-# Read from register location 27: 
+# Check Result:
+#   read_pointer = 20
 #   opcode = 0 (ZERO)
 #   operand_a = 0
 #   operand_b = 0
-#   result    = 0
+# 
+# Calculated Test Result: 0
+# 
+#  Dut Test Result = 0
+# 
+# Passed!
+# 
 #   read_pointer = 27
-# What was stored in test does not match what was read from DUT.
 # 
-# Read from register location 12: 
-#   opcode = 4 (SUB)
-#   operand_a = -2
-#   operand_b = 2
-#   result    = -4
+# Check Result:
+#   read_pointer = 27
+#   opcode = 0 (ZERO)
+#   operand_a = 0
+#   operand_b = 0
+# 
+# Calculated Test Result: 0
+# 
+#  Dut Test Result = 0
+# 
+# Passed!
+# 
 #   read_pointer = 12
-# 
-# What was stored in test matches what came from DUT. Starting cheking if results are matching.
 # 
 # Check Result:
 #   read_pointer = 12
@@ -670,24 +686,23 @@
 # 
 #  Dut Test Result = -4
 # 
-# Results are matching!
+# Passed!
 # 
-# Read from register location 27: 
+#   read_pointer = 27
+# 
+# Check Result:
+#   read_pointer = 27
 #   opcode = 0 (ZERO)
 #   operand_a = 0
 #   operand_b = 0
-#   result    = 0
-#   read_pointer = 27
-# What was stored in test does not match what was read from DUT.
 # 
-# Read from register location 17: 
-#   opcode = 1 (PASSA)
-#   operand_a = 3
-#   operand_b = 13
-#   result    = 3
+# Calculated Test Result: 0
+# 
+#  Dut Test Result = 0
+# 
+# Passed!
+# 
 #   read_pointer = 17
-# 
-# What was stored in test matches what came from DUT. Starting cheking if results are matching.
 # 
 # Check Result:
 #   read_pointer = 17
@@ -699,16 +714,9 @@
 # 
 #  Dut Test Result = 3
 # 
-# Results are matching!
+# Passed!
 # 
-# Read from register location 1: 
-#   opcode = 1 (PASSA)
-#   operand_a = -10
-#   operand_b = 15
-#   result    = -10
 #   read_pointer = 1
-# 
-# What was stored in test matches what came from DUT. Starting cheking if results are matching.
 # 
 # Check Result:
 #   read_pointer = 1
@@ -720,24 +728,23 @@
 # 
 #  Dut Test Result = -10
 # 
-# Results are matching!
+# Passed!
 # 
-# Read from register location 27: 
+#   read_pointer = 27
+# 
+# Check Result:
+#   read_pointer = 27
 #   opcode = 0 (ZERO)
 #   operand_a = 0
 #   operand_b = 0
-#   result    = 0
-#   read_pointer = 27
-# What was stored in test does not match what was read from DUT.
 # 
-# Read from register location 31: 
-#   opcode = 7 (MOD)
-#   operand_a = -2
-#   operand_b = 6
-#   result    = -2
+# Calculated Test Result: 0
+# 
+#  Dut Test Result = 0
+# 
+# Passed!
+# 
 #   read_pointer = 31
-# 
-# What was stored in test matches what came from DUT. Starting cheking if results are matching.
 # 
 # Check Result:
 #   read_pointer = 31
@@ -749,16 +756,9 @@
 # 
 #  Dut Test Result = -2
 # 
-# Results are matching!
+# Passed!
 # 
-# Read from register location 21: 
-#   opcode = 5 (MULT)
-#   operand_a = -14
-#   operand_b = 6
-#   result    = -84
 #   read_pointer = 21
-# 
-# What was stored in test matches what came from DUT. Starting cheking if results are matching.
 # 
 # Check Result:
 #   read_pointer = 21
@@ -770,16 +770,9 @@
 # 
 #  Dut Test Result = -84
 # 
-# Results are matching!
+# Passed!
 # 
-# Read from register location 2: 
-#   opcode = 2 (PASSB)
-#   operand_a = 13
-#   operand_b = 1
-#   result    = 1
 #   read_pointer = 2
-# 
-# What was stored in test matches what came from DUT. Starting cheking if results are matching.
 # 
 # Check Result:
 #   read_pointer = 2
@@ -791,24 +784,23 @@
 # 
 #  Dut Test Result = 1
 # 
-# Results are matching!
+# Passed!
 # 
-# Read from register location 27: 
+#   read_pointer = 27
+# 
+# Check Result:
+#   read_pointer = 27
 #   opcode = 0 (ZERO)
 #   operand_a = 0
 #   operand_b = 0
-#   result    = 0
-#   read_pointer = 27
-# What was stored in test does not match what was read from DUT.
 # 
-# Read from register location 0: 
-#   opcode = 0 (ZERO)
-#   operand_a = -4
-#   operand_b = 10
-#   result    = 0
+# Calculated Test Result: 0
+# 
+#  Dut Test Result = 0
+# 
+# Passed!
+# 
 #   read_pointer = 0
-# 
-# What was stored in test matches what came from DUT. Starting cheking if results are matching.
 # 
 # Check Result:
 #   read_pointer = 0
@@ -820,24 +812,23 @@
 # 
 #  Dut Test Result = 0
 # 
-# Results are matching!
+# Passed!
 # 
-# Read from register location 15: 
+#   read_pointer = 15
+# 
+# Check Result:
+#   read_pointer = 15
 #   opcode = 0 (ZERO)
 #   operand_a = 0
 #   operand_b = 0
-#   result    = 0
-#   read_pointer = 15
-# What was stored in test does not match what was read from DUT.
 # 
-# Read from register location 26: 
-#   opcode = 2 (PASSB)
-#   operand_a = 15
-#   operand_b = 1
-#   result    = 1
+# Calculated Test Result: 0
+# 
+#  Dut Test Result = 0
+# 
+# Passed!
+# 
 #   read_pointer = 26
-# 
-# What was stored in test matches what came from DUT. Starting cheking if results are matching.
 # 
 # Check Result:
 #   read_pointer = 26
@@ -849,16 +840,9 @@
 # 
 #  Dut Test Result = 1
 # 
-# Results are matching!
+# Passed!
 # 
-# Read from register location 2: 
-#   opcode = 2 (PASSB)
-#   operand_a = 13
-#   operand_b = 1
-#   result    = 1
 #   read_pointer = 2
-# 
-# What was stored in test matches what came from DUT. Starting cheking if results are matching.
 # 
 # Check Result:
 #   read_pointer = 2
@@ -870,16 +854,9 @@
 # 
 #  Dut Test Result = 1
 # 
-# Results are matching!
+# Passed!
 # 
-# Read from register location 13: 
-#   opcode = 5 (MULT)
-#   operand_a = -7
-#   operand_b = 9
-#   result    = -63
 #   read_pointer = 13
-# 
-# What was stored in test matches what came from DUT. Starting cheking if results are matching.
 # 
 # Check Result:
 #   read_pointer = 13
@@ -891,16 +868,9 @@
 # 
 #  Dut Test Result = -63
 # 
-# Results are matching!
+# Passed!
 # 
-# Read from register location 0: 
-#   opcode = 0 (ZERO)
-#   operand_a = -4
-#   operand_b = 10
-#   result    = 0
 #   read_pointer = 0
-# 
-# What was stored in test matches what came from DUT. Starting cheking if results are matching.
 # 
 # Check Result:
 #   read_pointer = 0
@@ -912,16 +882,9 @@
 # 
 #  Dut Test Result = 0
 # 
-# Results are matching!
+# Passed!
 # 
-# Read from register location 1: 
-#   opcode = 1 (PASSA)
-#   operand_a = -10
-#   operand_b = 15
-#   result    = -10
 #   read_pointer = 1
-# 
-# What was stored in test matches what came from DUT. Starting cheking if results are matching.
 # 
 # Check Result:
 #   read_pointer = 1
@@ -933,16 +896,9 @@
 # 
 #  Dut Test Result = -10
 # 
-# Results are matching!
+# Passed!
 # 
-# Read from register location 18: 
-#   opcode = 2 (PASSB)
-#   operand_a = -12
-#   operand_b = 14
-#   result    = 14
 #   read_pointer = 18
-# 
-# What was stored in test matches what came from DUT. Starting cheking if results are matching.
 # 
 # Check Result:
 #   read_pointer = 18
@@ -954,24 +910,23 @@
 # 
 #  Dut Test Result = 14
 # 
-# Results are matching!
+# Passed!
 # 
-# Read from register location 19: 
+#   read_pointer = 19
+# 
+# Check Result:
+#   read_pointer = 19
 #   opcode = 0 (ZERO)
 #   operand_a = 0
 #   operand_b = 0
-#   result    = 0
-#   read_pointer = 19
-# What was stored in test does not match what was read from DUT.
 # 
-# Read from register location 14: 
-#   opcode = 6 (DIV)
-#   operand_a = 9
-#   operand_b = 13
-#   result    = 0
+# Calculated Test Result: 0
+# 
+#  Dut Test Result = 0
+# 
+# Passed!
+# 
 #   read_pointer = 14
-# 
-# What was stored in test matches what came from DUT. Starting cheking if results are matching.
 # 
 # Check Result:
 #   read_pointer = 14
@@ -983,16 +938,9 @@
 # 
 #  Dut Test Result = 0
 # 
-# Results are matching!
+# Passed!
 # 
-# Read from register location 29: 
-#   opcode = 5 (MULT)
-#   operand_a = 10
-#   operand_b = 1
-#   result    = 10
 #   read_pointer = 29
-# 
-# What was stored in test matches what came from DUT. Starting cheking if results are matching.
 # 
 # Check Result:
 #   read_pointer = 29
@@ -1004,16 +952,9 @@
 # 
 #  Dut Test Result = 10
 # 
-# Results are matching!
+# Passed!
 # 
-# Read from register location 16: 
-#   opcode = 0 (ZERO)
-#   operand_a = -9
-#   operand_b = 15
-#   result    = 0
 #   read_pointer = 16
-# 
-# What was stored in test matches what came from DUT. Starting cheking if results are matching.
 # 
 # Check Result:
 #   read_pointer = 16
@@ -1025,24 +966,23 @@
 # 
 #  Dut Test Result = 0
 # 
-# Results are matching!
+# Passed!
 # 
-# Read from register location 27: 
+#   read_pointer = 27
+# 
+# Check Result:
+#   read_pointer = 27
 #   opcode = 0 (ZERO)
 #   operand_a = 0
 #   operand_b = 0
-#   result    = 0
-#   read_pointer = 27
-# What was stored in test does not match what was read from DUT.
 # 
-# Read from register location 12: 
-#   opcode = 4 (SUB)
-#   operand_a = -2
-#   operand_b = 2
-#   result    = -4
+# Calculated Test Result: 0
+# 
+#  Dut Test Result = 0
+# 
+# Passed!
+# 
 #   read_pointer = 12
-# 
-# What was stored in test matches what came from DUT. Starting cheking if results are matching.
 # 
 # Check Result:
 #   read_pointer = 12
@@ -1054,16 +994,9 @@
 # 
 #  Dut Test Result = -4
 # 
-# Results are matching!
+# Passed!
 # 
-# Read from register location 30: 
-#   opcode = 6 (DIV)
-#   operand_a = 13
-#   operand_b = 4
-#   result    = 3
 #   read_pointer = 30
-# 
-# What was stored in test matches what came from DUT. Starting cheking if results are matching.
 # 
 # Check Result:
 #   read_pointer = 30
@@ -1075,16 +1008,9 @@
 # 
 #  Dut Test Result = 3
 # 
-# Results are matching!
+# Passed!
 # 
-# Read from register location 0: 
-#   opcode = 0 (ZERO)
-#   operand_a = -4
-#   operand_b = 10
-#   result    = 0
 #   read_pointer = 0
-# 
-# What was stored in test matches what came from DUT. Starting cheking if results are matching.
 # 
 # Check Result:
 #   read_pointer = 0
@@ -1096,18 +1022,24 @@
 # 
 #  Dut Test Result = 0
 # 
-# Results are matching!
+# Passed!
 # 
-# Read from register location 7: 
+#   read_pointer = 7
+# 
+# Check Result:
+#   read_pointer = 7
 #   opcode = 0 (ZERO)
 #   operand_a = 0
 #   operand_b = 0
-#   result    = 0
-#   read_pointer = 7
-# What was stored in test does not match what was read from DUT.
+# 
+# Calculated Test Result: 0
+# 
+#  Dut Test Result = 0
+# 
+# Passed!
 # 
 # 
-# Number of tests passed out of all tests for: 20/32
+# Number of tests passed out of all tests for: 32/32
 # 
 # ***********************************************************
 # ***  THIS IS A SELF-CHECKING TESTBENCH.  YOU DON'T  ***
@@ -1117,5 +1049,5 @@
 # 
 # ** Note: $finish    : ../lab01_testbench-interface/instr_register_test.sv(83)
 #    Time: 866 ns  Iteration: 1  Instance: /top/test
-# End time: 08:49:44 on Apr 10,2024, Elapsed time: 0:00:01
+# End time: 09:43:36 on Apr 10,2024, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
