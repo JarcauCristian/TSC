@@ -114,7 +114,7 @@ module instr_register_test
 
     operand_a = $random(seed)%16; //put the calculated variable from above inside the registers
     operand_b = $unsigned($random)%16; //put the calculated variable from above inside the registers
-    opcode = opcode_t'($unsigned($random)%8); //put the calculated variable from above inside the registers
+    opcode = opcode_t'($unsigned($random)%9); //put the calculated variable from above inside the registers
 
     iw_reg_test[write_pointer] = '{opcode,operand_a,operand_b,{64{1'b0}}};
     $display("Randomized Transaction Display for Position: %0d", write_pointer);
