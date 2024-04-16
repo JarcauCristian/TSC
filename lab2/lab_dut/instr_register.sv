@@ -49,7 +49,7 @@ import instr_register_pkg::*;  // user-defined types are defined in instr_regist
           iw_reg[write_pointer] =  '{opcode,operand_a,operand_b,{64{1'b0}}};
         else
           iw_reg[write_pointer] =  '{opcode,operand_a,operand_b,operand_a % operand_b};
-        POV : if (operand_a === {32{1'b0}}) 
+        POW : if (operand_a === {32{1'b0}}) 
           iw_reg[write_pointer] =  '{opcode,operand_a,operand_b,{64{1'b0}}};
         else
           iw_reg[write_pointer] =  '{opcode,operand_a,operand_b,operand_a ** operand_b};

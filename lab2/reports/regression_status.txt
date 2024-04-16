@@ -9,3 +9,25 @@ case7: passed
 case8: passed
 case9: passed
 case10: passed
+Test run on: 16.04.2024 
+case1: passed
+case2: passed
+case3: passed
+case4: passed
+case5: passed
+case6: passed
+case7: passed
+case8: passed
+case9: passed
+case10: passed
+Test run on: 16.04.2024 
+case1: passed
+case2: passed
+case3: passed
+case4: passed
+case5: passed
+case6: passed
+case7: passed
+case8: passed
+case9: passed
+case10: passed

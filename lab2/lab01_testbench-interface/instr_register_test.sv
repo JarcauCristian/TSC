@@ -161,7 +161,7 @@ module instr_register_test
             result = 'b0;
           else
             result = iw_reg_test[read_pointer].op_a % iw_reg_test[read_pointer].op_b;
-          POV : if (iw_reg_test[read_pointer].op_a === {32{1'b0}})
+          POW : if (iw_reg_test[read_pointer].op_a === {32{1'b0}})
             result = 'b0;
           else
             result = iw_reg_test[read_pointer].op_a ** iw_reg_test[read_pointer].op_b;

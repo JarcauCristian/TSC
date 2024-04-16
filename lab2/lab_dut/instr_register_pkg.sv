@@ -14,7 +14,7 @@ package instr_register_pkg;
     MULT,
     DIV,
     MOD,
-    POV
+    POW
   } opcode_t; // definire enum
 
   typedef logic signed [31:0] operand_t;
