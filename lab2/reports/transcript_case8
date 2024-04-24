@@ -1,6 +1,6 @@
 # 1
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 18:12:24 on Apr 16,2024
+# Model Technology ModelSim Microsemi vlog 10.5c Compiler 2016.07 Jul 21 2016
+# Start time: 08:19:28 on Apr 17,2024
 # vlog -sv -timescale 1ps/1ps -work work -f sources.txt 
 # -- Compiling package instr_register_pkg
 # -- Compiling module instr_register
@@ -10,10 +10,23 @@
 # 
 # Top level modules:
 # 	top
-# End time: 18:12:24 on Apr 16,2024, Elapsed time: 0:00:00
+# End time: 08:19:28 on Apr 17,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vsim -novopt -quiet -nocoverage "+notimingchecks" "+nowarnTSCALE" -sva top -GTEST_NAME=case8 -GWR_NR=50 -GRD_NR=32 -GWRITE_ORDER=2 -GSEED_VAL=27347791 -GREAD_ORDER=2 
-# Start time: 18:12:24 on Apr 16,2024
+# Start time: 08:19:28 on Apr 17,2024
+# //  ModelSim Microsemi 10.5c Jul 21 2016
+# //
+# //  Copyright 1991-2016 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  ModelSim Microsemi and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
 # 
 # 
 # ***********************************************************
@@ -1036,5 +1049,5 @@
 # 
 # ** Note: $finish    : ../lab01_testbench-interface/instr_register_test.sv(83)
 #    Time: 866 ns  Iteration: 1  Instance: /top/test
-# End time: 18:12:25 on Apr 16,2024, Elapsed time: 0:00:01
+# End time: 08:19:29 on Apr 17,2024, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
